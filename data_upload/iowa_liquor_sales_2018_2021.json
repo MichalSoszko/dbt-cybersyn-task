@@ -1,0 +1,170 @@
+[
+    {
+      "name": "Invoice_Item_Number",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "Concatenated invoice and line number associated with the liquor order. This provides a unique identifier for the individual liquor products included in the store order.",
+      "fields": []
+    },
+    {
+      "name": "Date",
+      "mode": "NULLABLE",
+      "type": "DATE",
+      "description": "Date of order",
+      "fields": []
+    },
+    {
+      "name": "Store_Number",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "Unique number assigned to the store who ordered the liquor.",
+      "fields": []
+    },
+    {
+      "name": "Store_Name",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "Name of store who ordered the liquor.",
+      "fields": []
+    },
+    {
+      "name": "Address",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "Address of store who ordered the liquor.",
+      "fields": []
+    },
+    {
+      "name": "City",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "City where the store who ordered the liquor is located",
+      "fields": []
+    },
+    {
+      "name": "Zip_Code",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "Zip code where the store who ordered the liquor is located",
+      "fields": []
+    },
+    {
+      "name": "Store_Location",
+      "mode": "NULLABLE",
+      "type": "GEOGRAPHY",
+      "description": "Location of store who ordered the liquor. The Address, City, State and Zip Code are geocoded to provide geographic coordinates. Accuracy of geocoding is dependent on how well the address is interpreted and the completeness of the reference data used. Left NULL where unable to provide point location.",
+      "fields": []
+    },
+    {
+      "name": "County_Number",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "Iowa county number for the county where store who ordered the liquor is located.",
+      "fields": []
+    },
+    {
+      "name": "County",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "County where the store who ordered the liquor is located.",
+      "fields": []
+    },
+    {
+      "name": "Category",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "Category code associated with the liquor ordered.",
+      "fields": []
+    },
+    {
+      "name": "Category_Name",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "Category of the liquor ordered.",
+      "fields": []
+    },
+    {
+      "name": "Vendor_Number",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "The vendor number of the company for the brand of liquor ordered.",
+      "fields": []
+    },
+    {
+      "name": "Vendor_Name",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "The vendor name of the company for the brand of liquor ordered.",
+      "fields": []
+    },
+    {
+      "name": "Item_Number",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "Item number for the individual liquor product ordered.",
+      "fields": []
+    },
+    {
+      "name": "Item_Description",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "description": "Description of the individual liquor product ordered.",
+      "fields": []
+    },
+    {
+      "name": "Pack",
+      "mode": "NULLABLE",
+      "type": "INTEGER",
+      "description": "The number of bottles in a case for the liquor ordered.",
+      "fields": []
+    },
+    {
+      "name": "Bottle_Volume__ml_",
+      "mode": "NULLABLE",
+      "type": "INTEGER",
+      "description": "Volume of each liquor bottle ordered in milliliters.",
+      "fields": []
+    },
+    {
+      "name": "State_Bottle_Cost",
+      "mode": "NULLABLE",
+      "type": "NUMERIC",
+      "description": "The amount that Alcoholic Beverages Division paid for each bottle of liquor ordered.",
+      "fields": []
+    },
+    {
+      "name": "State_Bottle_Retail",
+      "mode": "NULLABLE",
+      "type": "NUMERIC",
+      "description": "The amount the store paid for each bottle of liquor ordered.",
+      "fields": []
+    },
+    {
+      "name": "Bottles_Sold",
+      "mode": "NULLABLE",
+      "type": "INTEGER",
+      "description": "The number of bottles of liquor ordered by the store",
+      "fields": []
+    },
+    {
+      "name": "Sale__Dollars_",
+      "mode": "NULLABLE",
+      "type": "NUMERIC",
+      "description": "Total cost of liquor order (number of bottles multiplied by the state bottle retail).",
+      "fields": []
+    },
+    {
+      "name": "Volume_Sold__Liters_",
+      "mode": "NULLABLE",
+      "type": "NUMERIC",
+      "description": "Total volume of liquor ordered in liters. (i.e. (Bottle Volume (ml) x Bottles Sold)/1,000).",
+      "fields": []
+    },
+    {
+      "name": "Volume_Sold__Gallons_",
+      "mode": "NULLABLE",
+      "type": "NUMERIC",
+      "description": "Total volume of liquor ordered in gallons. (i.e. (Bottle Volume (ml) x Bottles Sold)/3785.411784).",
+      "fields": []
+    }
+  ]

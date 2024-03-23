@@ -1,0 +1,58 @@
+version: 2
+
+sources:
+  - name: ingested
+    description: ""
+    tables:
+      - name: raw_iowa_liquor_sales
+        description: ""
+        columns:
+          - name: invoice_item_number
+            description: "Concatenated invoice and line number associated with the liquor order. This provides a unique identifier for the individual liquor products included in the store order"
+          - name: date
+            description: "Date of order"
+          - name: store_number
+            description: "Unique number assigned to the store who ordered the liquor."
+          - name: store_name
+            description: "Name of store who ordered the liquor."
+          - name: address
+            description: "Address of store who ordered the liquor."
+          - name: city
+            description: "City where the store who ordered the liquor is located"
+          - name: zip_code
+            description: "Zip code where the store who ordered the liquor is located"
+          - name: store_location
+            description: "Location of store who ordered the liquor. The Address, City, State and Zip Code are geocoded to provide geographic coordinates. Accuracy of geocoding is dependent on how well the address is interpreted and the completeness of the reference data used. Left NULL where unable to provide point location."
+          - name: county_number
+            description: "Iowa county number for the county where store who ordered the liquor is located"
+          - name: county
+            description: "County where the store who ordered the liquor is located"
+          - name: category
+            description: "Category code associated with the liquor ordered"
+          - name: category_name
+            description: "Category of the liquor ordered."
+          - name: vendor_number
+            description: "The vendor number of the company for the brand of liquor ordered."
+          - name: vendor_name
+            description: "The vendor name of the company for the brand of liquor ordered."
+          - name: item_number
+            description: "Item number for the individual liquor product ordered."
+          - name: item_description
+            description: "Description of the individual liquor product ordered."
+          - name: pack
+            description: "The number of bottles in a case for the liquor ordered."
+          - name: bottle_volume__ml_
+            description: "Volume of each liquor bottle ordered in milliliters."
+          - name: state_bottle_cost
+            description: "The amount that Alcoholic Beverages Division paid for each bottle of liquor ordered"
+          - name: state_bottle_retail
+            description: "The amount the store paid for each bottle of liquor ordered."
+          - name: bottles_sold
+            description: "The number of bottles of liquor ordered by the store."
+          - name: sale__dollars_
+            description: "Total cost of liquor order (number of bottles multiplied by the state bottle retail)."
+          - name: volume_sold__liters_
+            description: "Total volume of liquor ordered in liters. (i.e. (Bottle Volume (ml) x Bottles Sold)/1,000)"
+          - name: volume_sold__gallons_
+            description: "Total volume of liquor ordered in gallons. (i.e. (Bottle Volume (ml) x Bottles Sold)/3785.411784)
+"

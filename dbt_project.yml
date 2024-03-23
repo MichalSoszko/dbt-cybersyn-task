@@ -41,7 +41,7 @@ models:
         relation: true
         columns: true
     02_intermediate:
-      +materialized: table
+      +materialized: view
       +schema: 2_intermediate
       +persist_docs:
         relation: true
@@ -55,6 +55,12 @@ models:
     04_reports:
       +materialized: table
       +schema: 4_reports
+      +persist_docs:
+        relation: true
+        columns: true
+    EDA:
+      +materialized: table
+      +schema: EDA
       +persist_docs:
         relation: true
         columns: true

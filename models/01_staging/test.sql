@@ -1,2 +1,0 @@
-select
-    "test" as test
