@@ -38,6 +38,7 @@ final as (
         county,
         -- Product_id
         item_number,
+        bottle_volume__ml,
         -- Sales
         state_bottle_cost,
         state_bottle_retail,

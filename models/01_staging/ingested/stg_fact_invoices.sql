@@ -15,13 +15,14 @@ renamed as (
         store_number,
         -- Product_id
         item_number,
+        bottle_volume__ml,
         -- Sales
         state_bottle_cost,
         state_bottle_retail,
         bottles_sold,
-        sales__dollars,
-        volume_sold__liters,
-        volume_sold__gallons
+        (state_bottle_retail * bottles_sold) as sales__dollars,
+        (bottle_volume__ml * bottles_sold) / 1000 as volume_sold__liters,
+        (bottle_volume__ml * bottles_sold) / 3785.411784 as volume_sold__gallons
     from _base_iowa_liquor_sales
 )
 
