@@ -41,7 +41,7 @@ models:
         relation: true
         columns: true
     02_intermediate:
-      +materialized: view
+      +materialized: table
       +schema: 2_intermediate
       +persist_docs:
         relation: true

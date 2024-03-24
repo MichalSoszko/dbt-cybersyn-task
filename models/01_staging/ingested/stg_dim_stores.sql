@@ -1,23 +1,11 @@
-{% set store_details = [
-    "store_name",
-    "address",
-    "city",
-    "zip_code",
-    "store_location",
-    "county_number",
-    "county"
-    ]
--%}
-
-
 with 
 
 _base_iowa_liquor_sales as (
     select * from {{ ref('base_iowa_liquor_sales') }}
 ),
 
-_csv_store_names_mapping_GPT_cleaned as (
-    select * from {{ ref('csv_store_names_mapping_GPT_cleaned') }}
+_base_csv_store_names_mapping as (
+    select * from {{ ref('base_csv_store_names_mapping') }}
 ),
 
 base as (
@@ -30,8 +18,7 @@ base as (
         zip_code,
         store_location,
         county_number,
-        county,
-        vendor_number
+        county
     from _base_iowa_liquor_sales
 ),
 -- find most used store_location point using distinct address, city, and zip_code
@@ -66,12 +53,11 @@ clean_store_address_p1 as (
         csl.store_location_refined as store_location,
         county_number,
         county,
-        vendor_number,
         count(*) as cnt
     from base as b 
     left join clean_store_location_p2 as csl using(address, city, zip_code)
     where csl.store_location_rank = 1
-    group by 1,2,3,4,5,6,7,8,9
+    group by 1,2,3,4,5,6,7,8
 ),
 
 clean_store_address_p2 as (
@@ -91,10 +77,9 @@ final as (
         nullif(store_location, "null") as store_location,
         county_number,
         county,
-        vendor_number,
         map.store_company_by_GPT as store_company
     from clean_store_address_p2 as base
-    left join _csv_store_names_mapping_GPT_cleaned as map using(store_name)
+    left join _base_csv_store_names_mapping as map using(store_name)
     where store_number_rank = 1
 )
 

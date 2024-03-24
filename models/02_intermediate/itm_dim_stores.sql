@@ -1,19 +1,25 @@
-with
-
-_stg_dim_stores as (
+with _stg_dim_stores as (
     select * from {{ ref('stg_dim_stores') }}
 ),
 
-_stg_dim_vendors as (
-    select * from {{ ref('stg_dim_vendors') }}
+_base_csv_store_iowa_liquor_stores as (
+    select * from {{ ref('base_csv_iowa_liquor_stores') }}
 ),
 
-stores_and_vendors_combined as (
-    select 
-        s.*,
-        v.vendor_name_most_recent as vendor_name
-    from _stg_dim_stores as s
-    left join _stg_dim_vendors as v using(vendor_number)
+fill_missing_data as (
+    select
+        b.store_number,
+        b.store_name,
+        coalesce(b.address, c.address) as address,
+        coalesce(b.city, c.city) as city,
+        coalesce(b.zip_code, c.zip_code) as zip_code,
+        coalesce(b.store_location, c.store_location) as store_location,
+        b.county_number,
+        b.county,
+        b.store_company,
+    from _stg_dim_stores as b 
+    left join _base_csv_store_iowa_liquor_stores as c using(store_number)
 )
 
-select * from stores_and_vendors_combined
+select * from fill_missing_data
+order by 1

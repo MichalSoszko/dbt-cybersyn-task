@@ -4,8 +4,8 @@ _stg_fact_invoices as (
     select * from {{ ref('stg_fact_invoices') }}
 ),
 
-_itm_dim_stores as (
-    select * from {{ ref('itm_dim_stores') }}
+_stg_dim_stores as (
+    select * from {{ ref('stg_dim_stores') }}
 ),
 
 fact_invoices_with_store_details as (
@@ -13,7 +13,7 @@ fact_invoices_with_store_details as (
         inv.*,
         s.* except(store_number)
     from _stg_fact_invoices as inv
-    left join _itm_dim_stores as s using(store_number)
+    left join _stg_dim_stores as s using(store_number)
 ),
 
 final as (
@@ -36,8 +36,6 @@ final as (
         store_location,
         county_number,
         county,
-        vendor_number,
-        vendor_name,
         -- Product_id
         item_number,
         -- Sales
