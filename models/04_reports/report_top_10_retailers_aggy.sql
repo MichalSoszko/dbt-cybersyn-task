@@ -14,9 +14,9 @@ mart_fact_invoices_aggy as (
     select 
         extract(year from invoice_date) as year,
         retailer,
-        sum(sales__dollars) as sum_of_sales,
-        sum(volume_sold__liters) as sum_of_liters_sold,
-        sum(volume_sold__gallons) as sum_of_gallons_sold
+        round(sum(sales__dollars),2) as sum_of_sales,
+        round(sum(volume_sold__liters),2) as sum_of_liters_sold,
+        round(sum(volume_sold__gallons),2) as sum_of_gallons_sold
     from _mart_fact_invoices
     group by year, retailer
 ),
