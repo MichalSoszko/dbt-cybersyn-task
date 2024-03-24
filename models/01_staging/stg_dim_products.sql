@@ -4,13 +4,14 @@ with _base_iowa_liquor_sales as (
 
 renamed as (
     select distinct
+        date,
         -- Product Details
+        item_number,
+        item_description,
         category,
         category_name,
         vendor_number,
         vendor_name,
-        item_number,
-        item_description,
         pack,
         bottle_volume__ml,
     from _base_iowa_liquor_sales

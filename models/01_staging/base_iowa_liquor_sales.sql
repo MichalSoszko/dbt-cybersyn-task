@@ -21,7 +21,7 @@ renamed as (
         address,
         city,
         zip_code,
-        store_location,
+        ST_ASTEXT(store_location) as store_location,
         county_number,
         county,
         -- Product Details

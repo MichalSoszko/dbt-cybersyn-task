@@ -1,0 +1,1 @@
+{{ dbt_profiler.get_profile(relation=ref("stg_dim_stores")) }}

@@ -1,1 +1,1 @@
-{{ dbt_profiler.get_profile(relation=source("ingested","raw_iowa_liquor_sales"), exclude_measures=["std_dev_population", "std_dev_sample"]) }}
+{{ dbt_profiler.get_profile(relation=ref("base_iowa_liquor_sales"), exclude_measures=["std_dev_population", "std_dev_sample"]) }}
